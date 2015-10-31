@@ -8,8 +8,8 @@ Gem::Specification.new do |spec|
   spec.email         = ["mail@savytskyi.com"]
   spec.description   = "Realm for Rubymotion"
   spec.summary       = "Realm for Rubymotion"
-  spec.homepage      = ""
-  spec.license       = ""
+  spec.homepage      = "https://github.com/savytskyi/motion-realm"
+  spec.license       = "MIT"
 
   files = []
   files << 'README.md'

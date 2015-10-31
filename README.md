@@ -1,5 +1,9 @@
 # motion-realm
 
+[![Gem Version](https://badge.fury.io/rb/motion-realm.svg)](https://badge.fury.io/rb/motion-realm)
+
+[![Code Climate](https://codeclimate.com/github/savytskyi/motion-realm/badges/gpa.svg)](https://codeclimate.com/github/savytskyi/motion-realm)
+
 `motion-realm` gem has been made to Rubyfy Realm's syntax. You will
 still need to read some Realm's docs in order to understand how it works. Also because
 of Realm's specific, we still have to vendor Objective-C schema files.
