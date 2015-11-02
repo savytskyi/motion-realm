@@ -32,4 +32,10 @@ describe "RLMResults" do
     correct = result.first.apps_in_appstore < result.last.apps_in_appstore
     correct.should.be.equal(true)
   end
+
+  it "can be converted to array" do
+    parents = Parent.all.to_a
+    parents.is_a?(Array).should.be.equal(true)
+    parents.count.should.be.equal(Parent.count)
+  end
 end

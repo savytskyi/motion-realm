@@ -16,4 +16,13 @@ class RLMResults
 
     self.sortedResultsUsingProperty property, ascending: ascending
   end
+
+  def to_a
+    arr = []
+    self.each do |object|
+      arr << object
+    end
+
+    arr
+  end
 end
