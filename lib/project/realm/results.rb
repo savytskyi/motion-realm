@@ -25,4 +25,20 @@ class RLMResults
 
     arr
   end
+
+  def max_property(property)
+    maxOfProperty(property)
+  end
+
+  def min_property(property)
+    minOfProperty(property)
+  end
+
+  def avg_property(property)
+    averageOfProperty(property)
+  end
+
+  def sum_property(property)
+    sumOfProperty(property)
+  end
 end

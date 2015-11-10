@@ -38,4 +38,54 @@ describe "RLMResults" do
     parents.is_a?(Array).should.be.equal(true)
     parents.count.should.be.equal(Parent.count)
   end
+
+  it "can get max value" do
+    max_value = Parent.all.max_property("apps_in_appstore")
+
+    max = 0
+    Parent.all.to_a.each do |parent|
+      if max < parent.apps_in_appstore
+        max = parent.apps_in_appstore
+      end
+    end
+
+    max_value.should.be.equal(max)
+  end
+
+  it "can get min value" do
+    min_value = Parent.all.min_property("apps_in_appstore")
+
+    min = Parent.first.apps_in_appstore
+    Parent.all.to_a.each do |parent|
+      if min > parent.apps_in_appstore
+        min = parent.apps_in_appstore
+      end
+    end
+
+    min_value.should.be.equal(min)
+  end
+
+  it "can get avg value" do
+    avg_value = Parent.all.avg_property("apps_in_appstore")
+
+    total = 0
+    Parent.all.to_a.each do |parent|
+      total += parent.apps_in_appstore
+    end
+
+
+    (total.to_f / Parent.count).should.be.equal(avg_value)
+  end
+
+  it "can get sum value" do
+    total_value = Parent.all.sum_property("apps_in_appstore")
+
+    total = 0
+    Parent.all.to_a.each do |parent|
+      total += parent.apps_in_appstore
+    end
+
+
+    (total).should.be.equal(total_value)
+  end
 end
