@@ -15,5 +15,7 @@ class RLMRealmConfiguration
 
     config.migrationBlock = block
     RLMRealmConfiguration.setDefaultConfiguration(config)
+
+    RLMRealm.default
   end
 end
