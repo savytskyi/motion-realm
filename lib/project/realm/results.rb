@@ -41,4 +41,8 @@ class RLMResults
   def sum_property(property)
     sumOfProperty(property)
   end
+
+  def empty?
+    count == 0
+  end
 end

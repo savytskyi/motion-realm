@@ -88,4 +88,9 @@ describe "RLMResults" do
 
     (total).should.be.equal(total_value)
   end
+
+  it "can use empty? method" do
+    Parent.all.empty?.should.be.equal(false)
+    Child.all.empty?.should.be.equal(true)
+  end
 end
