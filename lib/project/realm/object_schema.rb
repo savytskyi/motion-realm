@@ -1,3 +1,3 @@
 class RLMObjectSchema
-  alias :properties_by_name :propertiesByName
+  alias :properties_by_name :allPropertiesByName
 end
