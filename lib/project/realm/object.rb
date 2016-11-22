@@ -13,4 +13,10 @@ class RLMObject
       realm << self
     end
   end
+
+  def update(params={})
+    params.each do |key, value|
+      self.send("#{key}=", value)
+    end
+  end
 end
