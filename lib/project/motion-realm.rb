@@ -36,9 +36,11 @@ module MotionRealm
       # set all properties to nil
       values = {}
 
-      self.schema.properties_by_name.each do |name, property|
-        values[name] = if default_values[name]
-          default_values[name]
+      self.schema.properties.each do |property|
+        property_name = property.name
+
+        values[property_name] = if default_values[property_name]
+          default_values[property_name]
         elsif property.bool?
           false
         elsif property.number? || property.mixed?
