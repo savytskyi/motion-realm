@@ -4,4 +4,8 @@ class RLMArray
   def <<(object)
     self.addObject(object)
   end
+
+  def empty?
+    count == 0
+  end
 end

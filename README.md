@@ -10,19 +10,46 @@ of Realm's specific, we still have to vendor Objective-C schema files.
 
 ## Realm setup
 
-I would suggest compiling Realm from their sources available at https://github.com/realm/realm-cocoa
+### CocoaPods
 
-`git clone https://github.com/realm/realm-cocoa`
-`cd realm-cocoa`
-`sh build.sh build`
+It's recommanded to integrate with `CocoaPods`:
+
+Add this line to your application's Gemfile, then run `bundle install`:
+
+    gem 'motion-cocoapods'
+
+Add this line to your application's Rakefile, then run `rake pod:install`:
+```
+app.pods do
+  pod 'Realm'
+end
+```
+
+Tell rubymotion to include schemas. In your `Rakefile` add:
+
+```
+app.vendor_project 'schemas', :static, cflags: '-I"../vendor/Pods/Headers/Public"'
+```
+
+### Manual
+
+You can also install by compiling Realm from their sources available at https://github.com/realm/realm-cocoa
+
+```
+git clone https://github.com/realm/realm-cocoa
+cd realm-cocoa
+sh build.sh build
+```
 
 When build will be finished, copy `build/ios/Realm.framework` into your app's `vendor/realm` folder. Don't forget to create `schemas` folder that will contain your DB schema definitions.
 
 Now we need to tell Rubymotion to include realm and schemas. In your `Rakefile` add:
 
-`app.libs << '/usr/lib/libc++.dylib'`
-`app.external_frameworks << 'vendor/realm/Realm.framework'`
-`app.vendor_project 'schemas', :static, :cflags => '-F ../vendor/realm/'`
+```
+app.libs << '/usr/lib/libc++.dylib'
+app.external_frameworks << 'vendor/realm/Realm.framework'
+app.vendor_project 'schemas', :static, :cflags => '-F ../vendor/realm/'
+```
 
 You can start using Realm in your project now.
 
@@ -84,9 +111,9 @@ RLM_ARRAY_TYPE(Child)
 @end
 ```
 
-And don't forget about implementation `.mm` file:
+And don't forget about implementation `.m` file:
 
-`schemas/schema.mm`
+`schemas/schema.m`
 
 ```objective-c
 #import "schema.h"

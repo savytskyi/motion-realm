@@ -47,7 +47,7 @@ class RLMProperty
   end
 
   def array?
-    type == RLMPropertyTypeArray
+    !!array
   end
 
   def type_name
